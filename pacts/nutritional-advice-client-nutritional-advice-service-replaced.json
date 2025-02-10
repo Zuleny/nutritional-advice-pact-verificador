@@ -1,0 +1,113 @@
+{
+  "consumer": {
+    "name": "nutritional-advice-client"
+  },
+  "interactions": [
+    {
+      "description": "Un body vacío",
+      "providerStates": [
+        {
+          "name": "realizar una consulta de ingredients"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/Ingredient"
+      },
+      "response": {
+        "body": [
+          {
+            "benefits": "Fuente de grasas saludables, ayuda a reducir el colesterol y mejora la salud del corazón",
+            "dishCategory": "guacamole",
+            "id": "f7d2c773-505e-46e5-a1e9-7a21e3ffe348",
+            "name": "Aguacate",
+            "variety": "hass"
+          },
+          {
+            "benefits": "Alto contenido de hierro, mejora la salud ósea y es rica en antioxidantes",
+            "dishCategory": "batidos",
+            "id": "ed91b799-d6a2-464f-b10c-e37e470099d6",
+            "name": "Espinaca",
+            "variety": "baby"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "datos para crear un ingredient",
+      "providerStates": [
+        {
+          "name": "crear ingredient"
+        }
+      ],
+      "request": {
+        "body": {
+          "benefits": "Hidratante, bajo en calorías y contiene vitaminas K y C",
+          "dishCategory": "ensaladas",
+          "name": "Pepino",
+          "variety": "kirby"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/api/Ingredient"
+      },
+      "response": {
+        "body": "\"f7d2c773-505e-46e5-a1e9-7a21e3ffe348\"",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "13.2.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "nutritional-advice-service"
+  }
+}

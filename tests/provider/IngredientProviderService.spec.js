@@ -6,7 +6,7 @@ const fs = require('fs');
 const generateAndReplacePactGuid = () => {
     const pactUrl = path.resolve(`./pacts/nutritional-advice-client-nutritional-advice-service.json`);
     let pactFile = fs.readFileSync(pactUrl, 'utf8');
-    pactFile = pactFile.replace(/9227d6ea-c391-46b9-8f1b-d180ee111bbe/g, uuidv4());
+    pactFile = pactFile.replace(/141d3ab0-c1b0-497d-8e7c-c91cf9aa6e31/g, uuidv4());
     const newPactUrl = path.resolve(`./pacts/nutritional-advice-client-nutritional-advice-service-replaced.json`);
     fs.writeFileSync(newPactUrl, pactFile);
     return newPactUrl;
